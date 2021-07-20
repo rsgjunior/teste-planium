@@ -11,12 +11,12 @@ module.exports = {
   },
 
   create (request, response) {
-    const { qtd, beneficiarios, registro } = request.body
+    const { beneficiarios, registro } = request.body
 
     // Valida se o registro do plano é válido
     if (!(PlanService.validarRegistroPlano(registro))) return response.status(400).json({ error: "Registro invalido" })
 
-    const novoBeneficiario = { id: uuid(), qtd, beneficiarios, registro }
+    const novoBeneficiario = { id: uuid(), qtd: beneficiarios.length(), beneficiarios, registro }
 
     beneficiariosJson.push(novoBeneficiario)
 
