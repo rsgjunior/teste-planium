@@ -3,7 +3,7 @@ const { v4: uuid } = require('uuid')
 const PlanService = require('../services/PlanService')
 let beneficiariosJson = require('../data/beneficiarios.json')
 
-const beneficiariosFilesPath = './src/data/beneficiarios.json'
+const beneficiariosFilePath = './src/data/beneficiarios.json'
 
 module.exports = {
   index (request, response) {
@@ -20,7 +20,7 @@ module.exports = {
 
     beneficiariosJson.push(novoBeneficiario)
 
-    fs.writeFileSync(beneficiariosFilesPath, JSON.stringify(beneficiariosJson))
+    fs.writeFileSync(beneficiariosFilePath, JSON.stringify(beneficiariosJson))
 
     return response.json(novoBeneficiario)
   },
@@ -33,12 +33,8 @@ module.exports = {
     if (beneficiarioIndex < 0) return response.status(404).json({ error: 'Beneficiario não encontrado' })
 
     beneficiariosJson.splice(beneficiarioIndex, 1)
-
-    try {
-      fs.writeFileSync(beneficiariosFilesPath, JSON.stringify(beneficiariosJson))
-    }catch (error) {
-      console.warn(error)
-    }
+    
+    fs.writeFileSync(beneficiariosFilePath, JSON.stringify(beneficiariosJson))
 
     return response.status(200).send()
   }

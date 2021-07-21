@@ -1,5 +1,1 @@
-[
-  {
-    "id_beneficiario": "eb3c816b-215c-4ae3-8745-10def2a4440e"
-  }
-]
+[{"id":"eb3c816b-215c-4ae3-8745-10def2a4440e","qtd":2,"beneficiarios":[{"nome":"Ronaldo","idade":22,"preco":65},{"nome":"Junior","idade":14,"preco":55}],"registro":"reg6","precoTotal":120},{"id":"84713317-5a8d-4ab3-b72b-42e236b1177c","qtd":1,"beneficiarios":[{"nome":"Junior","idade":48,"preco":15}],"registro":"reg1","precoTotal":15},{"id":"eb3c816b-215c-4ae3-8745-10def2a4440e","qtd":2,"beneficiarios":[{"nome":"Ronaldo","idade":22,"preco":65},{"nome":"Junior","idade":14,"preco":55}],"registro":"reg6","precoTotal":120}]

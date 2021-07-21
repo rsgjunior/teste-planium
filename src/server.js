@@ -3,17 +3,11 @@ const routes = require('./routes')
 
 const app = express()
 
+const porta = 3333
+
 app.use(express.json())
 app.use(routes)
 
-// json files
-const plans = require('./data/plans.json')
-const prices = require('./data/prices.json')
-
-// Rotas
-app.get('/plans', (request, response) => response.json(plans))
-app.get('/prices', (request, response) => response.json(prices))
-
-app.listen('3333', () => {
+app.listen(porta, () => {
   console.log('back-end iniciou')
 })
