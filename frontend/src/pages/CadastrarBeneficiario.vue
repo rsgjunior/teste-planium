@@ -23,7 +23,7 @@
       <button class="btn btn-success mb-3" @click="addBeneficiario">
         Adicionar Beneficiário
       </button>
-      <template v-for="(beneficiario, index) in beneficiariosForm" :key="index">
+      <div v-for="(beneficiario, index) in beneficiariosForm" :key="index">
         <div class="form-group">
           <div class="mb-3">
             <h4>
@@ -58,7 +58,7 @@
             </div>
           </div>
         </div>
-      </template>
+      </div>
     </div>
 
     <div class="card-footer">
@@ -90,7 +90,6 @@ export default {
   },
   data() {
     return {
-      quantidadeBenef: 0,
       beneficiariosForm: [
         {
           nome: '',
@@ -102,6 +101,14 @@ export default {
     }
   },
   methods: {
+    cleanForm() {
+      this.beneficiariosForm = [
+        {
+          nome: '',
+          idade: 0
+        }
+      ]
+    },
     addBeneficiario() {
       this.beneficiariosForm.push({
         nome: '',
@@ -118,6 +125,8 @@ export default {
           registro: this.registro
         })
         .then((response) => {
+          alert('Beneficiário foi cadastrado com sucesso')
+          this.cleanForm()
           console.log(response)
         })
         .catch((error) => {
